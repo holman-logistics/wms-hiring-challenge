@@ -33,12 +33,6 @@ To beat Claude, you need to add something it can't: real implementation scar tis
 |-----------|-------------|------------|
 | [WMS Implementation 012](challenges/wms-implementation-012/) | WMS Implementation Lead (3PL) | Hard |
 
-## How to Submit
-
-Apply through our careers page: **[Holman Logistics Careers](TODO-domain.com/careers)**
-
-Upload your challenge answer (PDF or Markdown) along with your application.
-
 ## Scoring
 
 Scoring criteria live in [SCORING.md](SCORING.md) (general) and [scoring_rubric.md](challenges/wms-implementation-012/scoring_rubric.md) (challenge-specific).

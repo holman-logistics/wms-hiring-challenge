@@ -136,11 +136,4 @@ Your submission is scored alongside Claude's baseline answer in a blind review. 
 
 ---
 
-**Ready to submit?** Apply through our careers page: **[TODO-domain.com/careers](https://www.TODO-domain.com/careers/)**
-Upload your challenge answer (PDF or Markdown) along with your application.
-
-**Include with your submission:**
-- Your LinkedIn profile URL (we're looking for multi-year tenure at 3PLs or enterprise shippers, with evidence you owned implementations end-to-end, not just supported them)
-- Names of the WMS platforms you've personally implemented or administered (not just evaluated)
-
 **Questions?** Open an issue in this repo.
