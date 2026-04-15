@@ -4,7 +4,7 @@
 
 ### The Situation
 
-You're the new Head of WMS Implementations at a mid-market 3PL. The incumbent WMS is stretched, the shipper mix is getting more complex, and the implementation queue has three live fires before you've finished your first coffee.
+You're the new Head of WMS Implementations at a mid-market 3PL. The incumbent WMS is stretched, the shipper mix is getting more complex, and the implementation queue has two live problems before you've finished your first coffee.
 
 **The Company: Keystone Logistics**
 - $180M revenue, 4 DCs (Columbus OH hub, Reno, Atlanta, Allentown)
@@ -30,7 +30,7 @@ You're the new Head of WMS Implementations at a mid-market 3PL. The incumbent WM
 
 ## Your Task
 
-Three problems are already on your desk. Tables and diagrams don't count toward the page limit. Use them.
+Two problems are already on your desk, plus a short section on you. Tables and diagrams don't count toward the page limit. Use them.
 
 ---
 
@@ -70,33 +70,13 @@ Three problems are already on your desk. Tables and diagrams don't count toward 
 
 ---
 
-### Part 3: The Integration Fire — Hollister Health
+### Part 3: Your Operating Edge
 
-**The shipper:** Hollister Health. Consumer health distributor. Live 14 months. They run a major cloud ERP.
+Three short prompts. One paragraph each is enough.
 
-**What's happening:**
-- The **846 inventory feed** (daily, 0200 ET) has been showing 3-5% more on-hand than physical for the last 11 days. Their allocation engine is promising inventory we don't have. Two backorders already.
-- **2% of 945 shipment confirmations** are rejecting against their ASN expectations. Their AP can't close invoices on those shipments.
-- Their ops director called Okonkwo yesterday. He's given you 72 hours before he's on the call himself.
-
-**Deliver:**
-- Your **72-hour triage plan.** What you diagnose, who you call, what you tell Hollister today.
-- An **EDI / integration architecture** for a multi-tenant 3PL that would have caught this earlier. Cover the transaction set, cadence, reconciliation, alerting, and the reconciliation you'd run weekly across every shipper, not just Hollister.
-- The **three most likely root causes** in rank order, with the test you'd run for each.
-
----
-
-### Part 4: Your Operating Edge
-
-**AI Fluency:**
-- Describe one WMS / ops workflow you've personally automated or augmented with AI. Before/after numbers. What broke.
-- In Part 1 (Cardinal cutover), which specific tasks would you hand to an AI agent, and which would you refuse to? Why.
-- What does a WMS implementation lead look like in 2028, when agent systems own 50% of go-live decisions?
-
-**Operator Experience:**
-- Tell us about a botched implementation (yours or one you inherited). What broke, when you realized it, and what you did that week.
-- Tell us about a time commercial sold a configuration that wouldn't work in ops. What did you push back on, how did you frame it, and what was the outcome.
-- Describe how you run a cutover weekend. Specific cadence, comms channel, rollback trigger, who has authority to call it.
+- **AI fluency.** Describe one WMS / ops workflow you've personally automated or augmented with AI. Before/after numbers. Then say which specific tasks in Part 1 (Cardinal cutover) you'd hand to an AI agent, and which you'd refuse to.
+- **Botched implementation.** Tell us about an implementation that went wrong (yours or one you inherited). What broke, when you realized it, and what you did that week.
+- **Commercial pushback.** Tell us about a time commercial sold a configuration that wouldn't work in ops. What did you push back on, how did you frame it, and what was the outcome.
 
 ---
 
@@ -105,7 +85,7 @@ Three problems are already on your desk. Tables and diagrams don't count toward 
 | Criterion | Weight | What We're Looking For |
 |-----------|--------|------------------------|
 | Implementation judgment | 30% | Cutover sequencing, risk calls, and config decisions that reflect real go-live scar tissue |
-| Specificity / technical depth | 25% | Named transactions, real cadences, concrete slotting/pick calls, hour-level cutover plan |
+| Specificity / technical depth | 25% | Real cadences, concrete slotting/pick calls, hour-level cutover plan, named exit criteria |
 | AI fluency | 20% | Treats AI agents as implementation workforce, not a demo. Knows where they help and where they break |
 | Commercial instinct | 15% | Pushes back on the three things. Understands SLA/billing math and the cost of saying yes |
 | Communication | 10% | Scannable, tables where tables belong, no padding |
@@ -114,7 +94,6 @@ Three problems are already on your desk. Tables and diagrams don't count toward 
 
 - A cutover plan whose first month is "discovery and stakeholder alignment"
 - A configuration answer that lists pick methodologies without picking one or killing one
-- An EDI section that names transaction numbers correctly but doesn't describe reconciliation or failure modes
 - "I'd use ChatGPT to draft SOPs" as your AI edge
 - Refusing to push back on Cardinal's config or Peak & Pine's sales commitment
 - Any answer that applies equally to a WMS, a TMS, and an ERP
@@ -123,14 +102,13 @@ Three problems are already on your desk. Tables and diagrams don't count toward 
 
 - A cutover plan that is boring in the right places (UAT, parallel runs, labor ramp) and sharp in the others (kill dates for scope, hour-by-hour cutover weekend, specific exit criteria for each phase)
 - A Peak & Pine config recommendation that names a methodology, kills one explicitly, and tells Okonkwo what the labor math actually looks like
-- A Hollister diagnosis that leads with data reconciliation, not a new dashboard
 - Evidence you've been in the WMS at 2am on a cutover weekend, not just next to it
 
 ---
 
 ## Format
 
-**Maximum 2 pages.** Diagrams, tables, and cutover timelines don't count toward the limit. Estimated time: 1-2 hours.
+**Maximum 2 pages.** Diagrams, tables, and cutover timelines don't count toward the limit. Estimated time: 30-45 minutes.
 
 Your submission is scored alongside Claude's baseline answer in a blind review. See [SCORING.md](../../SCORING.md) for the general rubric and [scoring_rubric.md](scoring_rubric.md) for this challenge's specifics.
 

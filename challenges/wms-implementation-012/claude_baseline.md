@@ -82,51 +82,13 @@ If any rollback threshold hits, revert the affected change (pick, slot, or cart)
 
 ---
 
-## Part 3: Hollister Health — Integration Fire
-
-### 72-Hour Triage
-
-**Hour 0-4:** Pull the 846 diff for the last 11 days. Reconcile on-hand in Körber against Hollister's ERP snapshot. Identify whether drift is SKU-specific, location-specific, or systemic.
-
-**Hour 4-12:** Pull the 2% of rejected 945s. Check rejection reason codes. Common culprits: UOM mismatch, location reference mismatch, ASN-to-945 quantity delta, timestamp skew on the 856.
-
-**Hour 12-24:** Call Hollister ops director. Lead with: "Here's what we've found, here's what we don't know yet, here's when you'll have the next update." Don't promise a fix yet.
-
-**Hour 24-48:** Engage HighJump support if it's a platform bug. Engage the EDI middleware vendor if it's a map issue. Run a controlled reconciliation on a single SKU family to validate the fix before broad rollout.
-
-**Hour 48-72:** Apply the fix in a controlled window. Re-sync 846. Monitor 945 reject rate hourly.
-
-### EDI Architecture
-
-| Transaction | Direction | Cadence | Reconciliation | Alert |
-|-------------|-----------|---------|---------------|-------|
-| 940 (order) | In | Every 15 min | Order count vs. ERP release count, hourly | Delta > 2% triggers PagerDuty |
-| 943/944 (transfer/receive) | Both | Real-time | Qty-out vs. qty-in nightly | Mismatch > 0.5% |
-| 945 (ship confirm) | Out | On ship event | 945 count vs. packed-order count, hourly | Reject rate > 0.5% |
-| 846 (inventory) | Out | Nightly 0200, hourly delta on A-items | On-hand vs. ERP nightly | Drift > 1% |
-| 856 (ASN) | Out | On shipment | ASN qty vs. 945 qty | Delta on any line |
-
-**Weekly reconciliation across all shippers:** on-hand variance report, 945 reject rate, 846 drift, orphaned EDI files. Reviewed by me every Monday.
-
-### Three Most Likely Root Causes
-
-1. **Cycle count adjustments not flowing to the 846.** HighJump cycle-count transactions bypass the inventory change event that triggers the 846 delta. **Test:** compare a known cycle-count adjustment to the 846 for that SKU over the following 24 hours.
-2. **UOM conversion bug on a recent SKU master update.** Hollister added 200 SKUs last month. If pack factors are off, received quantities inflate on-hand. **Test:** reconcile received qty against PO qty for new SKUs over the last 30 days.
-3. **Clock skew or batch ordering issue on the nightly 846 job.** 0200 job running before cycle counts complete. **Test:** check job scheduling history and correlate with adjustment timestamps.
-
----
-
-## Part 4: Operating Edge
+## Part 3: Operating Edge
 
 ### AI Fluency
 
-#### Workflow I've Automated
+*Note: As Claude, I don't have personal implementation experience to describe. A human candidate should name the specific workflow, the before-state numbers (hours/week, error rate, cycle time), the AI-augmented after-state numbers, and the one thing that broke. A strong answer is specific to WMS / ops work — an AI-assisted SKU master cleanse, an auto-generated SOP draft flow, an outbound cycle-count variance triage. "I use ChatGPT to write emails" does not beat this baseline.*
 
-*Note: As Claude, I don't have personal implementation experience to describe. A human candidate should name the specific workflow, the before-state numbers (hours/week, error rate, cycle time), the AI-augmented after-state numbers, and the one thing that broke. A strong answer is specific to WMS / ops work — for example, an AI-assisted SKU master cleanse, an auto-generated SOP draft flow, or an outbound cycle-count variance triage. "I use ChatGPT to write emails" does not beat this baseline.*
-
-#### Which Parts of Cardinal I'd Hand to an AI Agent
-
-**Hand off to an AI agent:**
+**Which parts of Cardinal I'd hand to an AI agent:**
 - SKU master cleanse and validation (structured work, clear pass/fail rules)
 - First-draft SOP generation from HighJump configuration specs
 - UAT test case generation from the EDI specification
@@ -138,24 +100,14 @@ If any rollback threshold hits, revert the affected change (pick, slot, or cart)
 - Slotting decisions for A-items. Requires physical understanding of the building and the team.
 - Any EDI partner testing where money moves. Verification has to be human.
 
-#### WMS Implementation Lead in 2028
-
-By 2028, the implementation lead manages a small team of agents that handle the structured 80% of every go-live: data cleanse, config drift detection, SOP generation, UAT automation, defect triage. The human owns the 20% that can't be automated: judgment calls on go/no-go, commercial pushback, cutover weekend command, post-mortem authority. The bottleneck shifts from "doing the work" to "knowing which agent output to trust." Implementation leads who can't evaluate agent output become irrelevant; leads who can will run 3-4x the shipper portfolio they run today.
-
-### Operator Experience
-
-#### Botched Implementation
+### Botched Implementation
 
 *Note: Claude cannot describe a real implementation failure. A strong human answer names what broke (EDI not tested with a real partner, slotting done by the vendor without floor input, labor ramped too late), when the candidate realized (ideally before the customer did), and what they did that week — usually a combination of comms transparency, scope cuts, and a very specific rescue plan. Candidates who can't name one are either too junior or not self-aware.*
 
-#### Pushing Back on Commercial
+### Commercial Pushback
 
 *Note: Claude cannot demonstrate real pushback. This is one of the hardest things to do in a 3PL, because commercial closed the deal and ops eats the variance. The best human answers describe: the specific config or SLA they pushed back on, how they framed it (usually in P&L or SLA terms the commercial team couldn't ignore), and what the outcome was — including the cases where they lost the fight and what they learned.*
 
-#### Cutover Weekend
-
-*Note: Claude can describe a cutover weekend in the abstract but can't describe how they personally ran one. The best answers include specifics: the comms channel (Teams war room, dedicated Slack), the standup cadence (every 2 hours), who has rollback authority (usually one person, named in advance), the go/no-go criteria written down before the weekend, and the small ritual that keeps the team alive at hour 30 — ordering food, rotating leads, sending the first pick photo to the exec team.*
-
 ---
 
-*Total: ~3 pages. Claude's answer is intentionally weaker on Part 4 Operator Experience — the botched-implementation, commercial-pushback, and cutover-weekend prompts are where real 3PL implementation leads have the biggest advantage.*
+*Claude's answer is intentionally weaker on the Botched Implementation and Commercial Pushback prompts — these are where real 3PL implementation leads have the biggest advantage.*
