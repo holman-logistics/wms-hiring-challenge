@@ -25,7 +25,7 @@ Claude's baseline answer was generated using the same brief. If you paste the br
 
 To beat Claude, you need to add something it can't: real implementation scar tissue, a commercial pushback story, a cutover-weekend ritual, an integration failure you've personally diagnosed.
 
-**Time commitment:** 40 min. Submissions are capped at 2 pages (tables and timelines don't count).
+**Time commitment:** 30-45 min. Submissions are capped at 2 pages (tables and timelines don't count).
 
 ## The Challenge
 
