@@ -25,13 +25,13 @@ Claude's baseline answer was generated using the same brief. If you paste the br
 
 To beat Claude, you need to add something it can't: real implementation scar tissue, a commercial pushback story, a cutover-weekend ritual, an integration failure you've personally diagnosed.
 
-**Time commitment:** 1-2 hours. Submissions are capped at 2 pages (tables and timelines don't count).
+**Time commitment:** 40 min. Submissions are capped at 2 pages (tables and timelines don't count).
 
 ## The Challenge
 
 | Challenge | Role Target | Difficulty |
 |-----------|-------------|------------|
-| [WMS Implementation 012](challenges/wms-implementation-012/) | WMS Implementation Lead (3PL) | Hard |
+| [WMS Implementation 012](challenges/wms-implementation-012/) | WMS Implementation Lead (3PL) | Medium |
 
 ## Scoring
 
