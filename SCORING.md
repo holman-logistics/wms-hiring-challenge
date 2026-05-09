@@ -119,4 +119,4 @@ Holman Logistics team members with domain expertise in the challenge area.
 
 **Q: How long should this take?**
 
-Most challenges are designed to take 1-2 hours. If you're spending significantly more, you may be over-thinking it. We're testing judgment and prioritization, not endurance.
+This challenge is designed to take 30-45 min. If you're spending significantly more, you may be over-thinking it. We're testing judgment and prioritization, not endurance.
