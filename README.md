@@ -1,6 +1,6 @@
 # WMS Hiring Challenge
 
-**Beat Claude to get an interview.**
+**Beat Claude to continue the interview process.**
 
 Holman Logistics is hiring a WMS Implementation Lead. We believe the 20% of implementation work that matters can't be done by AI. This challenge is designed to prove it.
 
